@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Funcionário";
+}
+
+<form class="form-horizontal" action="/Funcionario/Cadastrar" method="post">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Funcionário</legend>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="txtCodigo">Código</label>
+            <div class="controls">
+                <input id="txtCodigo" name="funcionario.Id" type="text" placeholder="" class="input-medium" disabled value=@ViewBag.Id>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="txtNome">Nome</label>
+            <div class="controls">
+                <input id="txtNome" name="funcionario.Nome" type="text" placeholder="Nome do funcionário" class="input-large" required>
+                @Html.ValidationMessage("funcionario.Nome")
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="lblSenha">Senha</label>
+            <div class="controls">
+                <input id="txtSenha" name="funcionario.Senha" type="password" placeholder="Senha" class="input-large" required>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+            <label class="control-label" for="txtFoto">Foto</label>
+            <div class="controls">
+                <input id="txtFoto" name="funcionario.Foto" type="text" placeholder="Caminho foto" class="input-large">
+            </div>
+        </div>
+
+        @{
+            if (ViewBag.Result != null && ViewBag.Result == true)
+            {
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="alert alert-success" role="alert"><strong>Cadastro realizado com sucesso</strong></div>
+                    </div>
+                </div>
+            }
+        }
+
+        <!-- Button -->
+        <div class="control-group">
+            <label class="control-label" for="btnCadFuncionario"></label>
+            <div class="controls">
+                <button id="btnCadFuncionario" name="btnCadFuncionario" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+
+</fieldset>
+</form>
+
